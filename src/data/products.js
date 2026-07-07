@@ -4,7 +4,7 @@ export const products = [
     name: 'Big Mac',
     category: 'Hambúrgueres',
     price: 29.9,
-    image: 'https://i.postimg.cc/gXsBSrcq/Big-Mc.jpg',
+    image: 'https://i.postimg.cc/vDsnVHr8/Big-Mc.jpg',
     options: {
       tamanhos: ['Médio', 'Grande'],
       adicionais: [
@@ -19,7 +19,7 @@ export const products = [
     name: 'Quarterão',
     category: 'Hambúrgueres',
     price: 32.9,
-    image: 'https://i.postimg.cc/7bPRC1mZ/Mc-Quarter.jpg',
+    image: 'https://i.postimg.cc/yWHRZYmx/Mc-Quarter.jpg',
     options: {
       tamanhos: ['Médio', 'Grande'],
       adicionais: [
@@ -34,7 +34,7 @@ export const products = [
     name: 'McChicken',
     category: 'Hambúrgueres',
     price: 27.9,
-    image: 'https://i.postimg.cc/SjQPXLDK/Mc-Chicken.jpg',
+    image: 'https://i.postimg.cc/NLcXHf6M/Mc-Chicken.jpg',
     options: {
       tamanhos: ['Médio', 'Grande'],
       adicionais: [
@@ -49,7 +49,7 @@ export const products = [
     name: 'Batata Média',
     category: 'Acompanhamentos',
     price: 11.9,
-    image: 'https://i.postimg.cc/bdY5G03N/Mc-Fries.jpg',
+    image: 'https://i.postimg.cc/hhBmdPLG/Fries.jpg',
   options:{
         tamanhos:["Médio","Grande"],
         adicionais:[
@@ -62,7 +62,7 @@ export const products = [
     name: 'Coca-Cola',
     category: 'Bebidas',
     price: 8.9,
-    image: 'https://i.postimg.cc/MM5rPXZD/Coca-Cola.jpg',
+    image: 'https://i.postimg.cc/rzk4rF1z/Coca-Cola.jpg',
     options: {
       tamanhos: ['300ml', '500ml', '700ml'],
       adicionais: [
@@ -76,7 +76,7 @@ export const products = [
     name: 'Sundae',
     category: 'Sobremesas',
     price: 9.9,
-    image: 'https://i.postimg.cc/qgBFtcjR/Sundae.jpg',
+    image: 'https://i.postimg.cc/MXSBQK7n/Sundae.jpg',
       options:{
         tamanhos:["300ml","500ml"],
         adicionais:[

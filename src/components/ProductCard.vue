@@ -38,6 +38,16 @@ function abrirProduto() {
     width:100%;
     max-width:250px;
     margin:auto;
+    background:white;
+    border-radius:15px;
+    padding:15px;
+}
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:contain;
+    border-radius:12px;
+    padding:15px;
 }
 
 img {
