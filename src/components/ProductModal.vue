@@ -48,41 +48,40 @@ function adicionarAoCarrinho() {
     <div class="modal">
       <h2>{{ product.name }}</h2>
 
-      <h3>Escolha o tamanho</h3>
+<div>
+  <h3>Escolha o tamanho</h3>
 
-      <label>
-        <input type="radio" value="Pequeno" v-model="tamanho" />
-        Pequeno (-R$2)
-      </label>
+  <label
+    v-for="t in product.options.tamanhos"
+    :key="t"
+  >
+    <input
+      type="radio"
+      :value="t"
+      v-model="tamanho"
+    />
 
-      <label>
-        <input type="radio" value="Médio" v-model="tamanho" />
-        Médio
-      </label>
+    {{ t }}
+  </label>
+</div>
+  <div>
+  <h3>Adicionais</h3>
 
-      <label>
-        <input type="radio" value="Grande" v-model="tamanho" />
-        Grande (+R$6)
-      </label>
+  <label
+    v-for="adicional in product.options.adicionais"
+    :key="adicional.nome"
+  >
+    <input
+      type="checkbox"
+      v-model="selecionados"
+      :value="adicional.nome"
+    />
 
-      <hr />
+    {{ adicional.nome }}
 
-      <h3>Adicionais</h3>
-
-      <label>
-        <input type="checkbox" v-model="adicionais.queijo" />
-        Queijo (+R$3)
-      </label>
-
-      <label>
-        <input type="checkbox" v-model="adicionais.bacon" />
-        Bacon (+R$5)
-      </label>
-
-      <label>
-        <input type="checkbox" v-model="adicionais.molho" />
-        Molho Especial (+R$2)
-      </label>
+    (+R$ {{ adicional.preco.toFixed(2) }})
+  </label>
+</div>
 
       <hr />
 
