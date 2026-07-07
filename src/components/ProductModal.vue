@@ -93,11 +93,14 @@
   z-index: 1000;
 }
 
-.modal {
-  width: 450px;
-  background: white;
-  border-radius: 20px;
-  padding: 30px;
+.modal{
+    width:min(90%,500px);
+    max-height:90vh;
+    overflow:auto;
+    background:white;
+    border-radius:15px;
+    padding:30px;
+
 }
 
 label {

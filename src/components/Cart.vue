@@ -190,4 +190,12 @@ function finalizarPedido() {
   font-size: 18px;
   font-weight: bold;
 }
+
+@media( max-width: 768px) {
+  .cart {
+    width: 100%;
+    box-shadow: none;
+    padding: 20px;
+  }
+}
 </style>

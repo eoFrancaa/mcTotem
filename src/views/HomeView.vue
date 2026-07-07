@@ -35,12 +35,11 @@ body {
   margin: 0;
 }
 
-.container {
-  display: flex;
-  height: 100vh;
-  background: #f5f5f5;
+.container{
+    display:flex;
+    min-height:100vh;
+    background:#f5f5f5;
 }
-
 .content {
   flex: 1;
   padding: 30px;
@@ -52,9 +51,35 @@ body {
   margin-bottom: 35px;
 }
 
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 25px;
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:20px;
+}
+@media (max-width: 1100px){
+
+    .container{
+        flex-direction:column;
+    }
+
+    .menu{
+        width:100%;
+        display:flex;
+        justify-content:center;
+        gap:10px;
+        flex-wrap:wrap;
+        padding:15px;
+    }
+
+    .content{
+        width:100%;
+        padding:20px;
+    }
+
+    .cart{
+        width:100%;
+        box-sizing:border-box;
+    }
+
 }
 </style>

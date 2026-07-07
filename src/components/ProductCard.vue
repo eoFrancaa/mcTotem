@@ -34,13 +34,10 @@ function abrirProduto() {
 </template>
 
 <style scoped>
-.card {
-  width: 220px;
-  border-radius: 15px;
-  background: white;
-  padding: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-  text-align: center;
+.card{
+    width:100%;
+    max-width:250px;
+    margin:auto;
 }
 
 img {
