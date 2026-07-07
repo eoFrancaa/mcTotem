@@ -1,98 +1,86 @@
-<script setup>
-import { ref, computed } from 'vue'
-import { useCartStore } from '../stores/cart'
+  <script setup>
+  import { ref, computed } from 'vue'
+  import { useCartStore } from '../stores/cart'
 
-const cart = useCartStore()
+  const cart = useCartStore()
 
-const props = defineProps({
-  product: Object,
-})
+  const props = defineProps({
+    product: Object,
+  })
 
-const emit = defineEmits(['close'])
+  const emit = defineEmits(['close'])
 
-const tamanho = ref('Médio')
+  const tamanho = ref('Médio')
 
-const adicionais = ref({
-  queijo: false,
-  bacon: false,
-  molho: false,
-})
+  const adicionais = ref([])
 
-const total = computed(() => {
-  let valor = props.product.price
+  const total = computed(() => {
+    let valor = props.product.price
 
-  if (tamanho.value === 'Pequeno') valor -= 2
-  if (tamanho.value === 'Grande') valor += 6
+    if (tamanho.value === 'Grande') valor += 6
+    if (tamanho.value === 'Pequeno') valor -= 2
 
-  if (adicionais.value.queijo) valor += 3
-  if (adicionais.value.bacon) valor += 5
-  if (adicionais.value.molho) valor += 2
+    adicionais.value.forEach((nome) => {
+      const adicional = props.product.options.adicionais.find(
+        (a) => a.nome === nome
+      )
 
-  return valor
-})
+      if (adicional) {
+        valor += adicional.preco
+      }
+    })
 
-function adicionarAoCarrinho() {
+    return valor
+  })
+
+  function adicionarAoCarrinho() {
   cart.addProduct({
     ...props.product,
     price: total.value,
     tamanho: tamanho.value,
-    adicionais: { ...adicionais.value },
+    adicionais: [...adicionais.value],
   })
 
-  emit('close')
+  emit("close")
 }
 </script>
 
-<template>
-  <div class="overlay">
-    <div class="modal">
-      <h2>{{ product.name }}</h2>
+  <template>
+    <div class="overlay">
+      <div class="modal">
+        <h2>{{ product.name }}</h2>
 
-<div>
-  <h3>Escolha o tamanho</h3>
+        <div>
+          <h3>Escolha o tamanho</h3>
 
-  <label
-    v-for="t in product.options.tamanhos"
-    :key="t"
-  >
-    <input
-      type="radio"
-      :value="t"
-      v-model="tamanho"
-    />
+          <label v-for="t in product.options.tamanhos" :key="t">
+            <input type="radio" :value="t" v-model="tamanho" />
 
-    {{ t }}
-  </label>
-</div>
-  <div>
-  <h3>Adicionais</h3>
+            {{ t }}
+          </label>
+        </div>
+        <div>
+          <h3>Adicionais</h3>
 
-  <label
-    v-for="adicional in product.options.adicionais"
-    :key="adicional.nome"
-  >
-    <input
-      type="checkbox"
-      v-model="selecionados"
-      :value="adicional.nome"
-    />
+          <label v-for="adicional in product.options.adicionais" :key="adicional.nome">
+            <input type="checkbox" :value="adicional.nome" v-model="adicionais" />
 
-    {{ adicional.nome }}
+            {{ adicional.nome }}
 
-    (+R$ {{ adicional.preco.toFixed(2) }})
-  </label>
-</div>
+            (+R$ {{ adicional.preco.toFixed(2) }})
+          </label>
+        </div>
 
-      <hr />
+        <hr />
 
-      <h2>Total: R$ {{ total.toFixed(2) }}</h2>
+        <h2>Total: R$ {{ total.toFixed(2) }}</h2>
 
-      <button class="add" @click="adicionarAoCarrinho">Adicionar ao Pedido</button>
+        <button class="add" @click="adicionarAoCarrinho">Adicionar ao Pedido</button>
 
-      <button class="cancel" @click="emit('close')">Cancelar</button>
+        <button class="cancel" @click="emit('close')">Cancelar</button>
+      </div>
     </div>
-  </div>
-</template>
+  </template>
 
 <style scoped>
 .overlay {

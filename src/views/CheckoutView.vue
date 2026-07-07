@@ -10,7 +10,7 @@ function confirmarPedido() {
 
   cart.items = []
 
-  router.push('/')
+  router.push('/success');
 }
 </script>
 
