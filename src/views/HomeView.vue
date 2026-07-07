@@ -8,34 +8,26 @@ import CategoryBar from '../components/CategoryBar.vue'
 const categoriaSelecionada = ref('Hambúrgueres')
 
 const produtosFiltrados = computed(() =>
-  products.filter(p => p.category === categoriaSelecionada.value)
+  products.filter((p) => p.category === categoriaSelecionada.value),
 )
 </script>
 <template>
- <div class="container">
+  <div class="container">
+    <CategoryBar
+      :categoriaSelecionada="categoriaSelecionada"
+      @mudarCategoria="categoriaSelecionada = $event"
+    />
 
-  <CategoryBar
-    :categoriaSelecionada="categoriaSelecionada"
-    @mudarCategoria="categoriaSelecionada = $event"
-  />
+    <main class="content">
+      <h1>{{ categoriaSelecionada }}</h1>
 
-  <main class="content">
+      <div class="products">
+        <ProductCard v-for="product in produtosFiltrados" :key="product.id" :product="product" />
+      </div>
+    </main>
 
-    <h1>{{ categoriaSelecionada }}</h1>
-
-    <div class="products">
-      <ProductCard
-        v-for="product in produtosFiltrados"
-        :key="product.id"
-        :product="product"
-      />
-    </div>
-
-  </main>
-
-  <Cart />
-
-</div>
+    <Cart />
+  </div>
 </template>
 
 <style scoped>

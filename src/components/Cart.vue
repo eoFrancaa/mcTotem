@@ -20,6 +20,13 @@ function finalizarPedido() {
       <div class="item" v-for="item in cart.items" :key="item.id">
         <div>
           <strong>{{ item.name }}</strong>
+          <small>{{ item.tamanho }}</small>
+
+          <small v-if="item.adicionais.queijo"> 🧀 Queijo </small>
+
+          <small v-if="item.adicionais.bacon"> 🥓 Bacon </small>
+
+          <small v-if="item.adicionais.molho"> 🥫 Molho Especial </small>
 
           <div class="quantity">
             <button @click="cart.decrease(item.id)">−</button>
@@ -78,6 +85,7 @@ function finalizarPedido() {
   font-weight: bold;
   cursor: pointer;
 }
+
 .quantity {
   display: flex;
   align-items: center;

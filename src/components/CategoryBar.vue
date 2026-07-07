@@ -1,16 +1,11 @@
 <script setup>
 defineProps({
-  categoriaSelecionada: String
+  categoriaSelecionada: String,
 })
 
 const emit = defineEmits(['mudarCategoria'])
 
-const categorias = [
-  'Hambúrgueres',
-  'Acompanhamentos',
-  'Bebidas',
-  'Sobremesas'
-]
+const categorias = ['Hambúrgueres', 'Acompanhamentos', 'Bebidas', 'Sobremesas']
 </script>
 
 <template>

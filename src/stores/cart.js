@@ -17,7 +17,12 @@ export const useCartStore = defineStore('cart', {
 
   actions: {
     addProduct(product) {
-      const existing = this.items.find((item) => item.id === product.id)
+      const existing = this.items.find(
+        (item) =>
+          item.id === product.id &&
+          item.tamanho === product.tamanho &&
+          JSON.stringify(item.adicionais) === JSON.stringify(product.adicionais),
+      )
 
       if (existing) {
         existing.quantity++

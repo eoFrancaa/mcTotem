@@ -1,15 +1,12 @@
 <script setup>
-import { useCartStore } from '../stores/cart'
-
-const cart = useCartStore()
+import { ref } from 'vue'
+import ProductModal from './ProductModal.vue'
 
 const props = defineProps({
   product: Object,
 })
 
-function add() {
-  cart.addProduct(props.product)
-}
+const mostrarModal = ref(false)
 </script>
 
 <template>
@@ -20,7 +17,9 @@ function add() {
 
     <p>R$ {{ product.price.toFixed(2) }}</p>
 
-    <button @click="add">Adicionar</button>
+    <button @click="mostrarModal = true">Personalizar</button>
+
+    <ProductModal v-if="mostrarModal" :product="product" @close="mostrarModal = false" />
   </div>
 </template>
 
