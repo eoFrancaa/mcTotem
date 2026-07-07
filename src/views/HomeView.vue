@@ -1,11 +1,16 @@
 <script setup>
-import ProductCard from "../components/ProductCard.vue"
-import { products } from "../data/products"
+import { ref, computed } from "vue";
+import ProductCard from "../components/ProductCard.vue";
 import Cart from "../components/Cart.vue";
+import { products } from "../data/products";
 
-import { useCartStore } from "../stores/cart";
+const categoriaSelecionada = ref("Hambúrgueres");
 
-const cart = useCartStore();
+const produtosFiltrados = computed(() => {
+  return products.filter(
+    produto => produto.category === categoriaSelecionada.value
+  );
+});
 </script>
 
 <template>
@@ -13,14 +18,25 @@ const cart = useCartStore();
 
     <aside class="menu">
 
-      <h2>🍟 McTotem</h2>
+  <h2>🍟 McTotem</h2>
 
-      <button>🍔 Hambúrgueres</button>
-      <button>🍟 Acompanhamentos</button>
-      <button>🥤 Bebidas</button>
-      <button>🍦 Sobremesas</button>
+  <button @click="categoriaSelecionada='Hambúrgueres'" :class="{ active: categoriaSelecionada === 'Hambúrgueres' }">
+    🍔 Hambúrgueres
+  </button>
 
-    </aside>
+  <button @click="categoriaSelecionada='Acompanhamentos'" :class="{ active: categoriaSelecionada === 'Acompanhamentos' }">
+    🍟 Acompanhamentos
+  </button>
+
+  <button @click="categoriaSelecionada='Bebidas'" :class="{ active: categoriaSelecionada === 'Bebidas' }">
+    🥤 Bebidas
+  </button>
+
+  <button @click="categoriaSelecionada='Sobremesas'" :class="{ active: categoriaSelecionada === 'Sobremesas' }">
+    🍦 Sobremesas
+  </button>
+
+</aside>
 
     <main class="content">
 
@@ -29,7 +45,7 @@ const cart = useCartStore();
       <div class="products">
 
         <ProductCard
-          v-for="product in products"
+          v-for="product in produtosFiltrados"
           :key="product.id"
           :product="product"
         />
@@ -79,6 +95,12 @@ body{
     cursor:pointer;
     font-size:18px;
     transition:.2s;
+}
+
+.menu button.active{
+    background:#FFC72C;
+    color:#000;
+    font-weight:bold;
 }
 
 .menu button:hover{
