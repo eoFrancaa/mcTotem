@@ -1,3 +1,17 @@
+<script setup>
+import { useCartStore } from "../stores/cart";
+
+const cart = useCartStore();
+
+const props = defineProps({
+  product: Object
+});
+
+function add(){
+  cart.addProduct(props.product);
+}
+</script>
+
 <template>
   <div class="card">
     <img :src="product.image" :alt="product.name">
@@ -6,15 +20,10 @@
 
     <p>R$ {{ product.price.toFixed(2) }}</p>
 
-    <button>Adicionar</button>
+    <button @click="add">Adicionar</button>
   </div>
 </template>
 
-<script setup>
-defineProps({
-  product: Object
-})
-</script>
 
 <style scoped>
 .card{

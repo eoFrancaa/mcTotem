@@ -1,6 +1,11 @@
 <script setup>
 import ProductCard from "../components/ProductCard.vue"
 import { products } from "../data/products"
+import Cart from "../components/Cart.vue";
+
+import { useCartStore } from "../stores/cart";
+
+const cart = useCartStore();
 </script>
 
 <template>
@@ -32,6 +37,7 @@ import { products } from "../data/products"
       </div>
 
     </main>
+    <Cart />  
 
   </div>
 </template>
