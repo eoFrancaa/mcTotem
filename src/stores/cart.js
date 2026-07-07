@@ -1,69 +1,56 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia'
 
-export const useCartStore = defineStore("cart", {
+export const useCartStore = defineStore('cart', {
   state: () => ({
     items: [],
   }),
 
   getters: {
     total(state) {
-      return state.items.reduce(
-        (total, item) => total + item.price * item.quantity,
-        0
-      );
+      return state.items.reduce((total, item) => total + item.price * item.quantity, 0)
     },
 
     totalItems(state) {
-      return state.items.reduce(
-        (total, item) => total + item.quantity,
-        0
-      );
+      return state.items.reduce((total, item) => total + item.quantity, 0)
     },
   },
 
   actions: {
     addProduct(product) {
-      const existing = this.items.find(
-        item => item.id === product.id
-      );
+      const existing = this.items.find((item) => item.id === product.id)
 
       if (existing) {
-        existing.quantity++;
+        existing.quantity++
       } else {
         this.items.push({
           ...product,
-          quantity: 1
-        });
+          quantity: 1,
+        })
       }
     },
 
     removeProduct(id) {
-      this.items = this.items.filter(
-        item => item.id !== id
-      );
+      this.items = this.items.filter((item) => item.id !== id)
     },
 
     increase(id) {
-        const item = this.items.find(item => item.id === id);
+      const item = this.items.find((item) => item.id === id)
 
-        if (item) {
-          item.quantity++;
-        }
-      },
+      if (item) {
+        item.quantity++
+      }
     },
+  },
 
-    decrease(id) {
-        const item = this.items.find(item => item.id === id);
+  decrease(id) {
+    const item = this.items.find((item) => item.id === id)
 
-        if (!item) return;
+    if (!item) return
 
-         if (item.quantity > 1) {
-          item.quantity--;
-        } else {
-        this.removeProduct(id);
-         }
-},
-
-
-}
-);
+    if (item.quantity > 1) {
+      item.quantity--
+    } else {
+      this.removeProduct(id)
+    }
+  },
+})
