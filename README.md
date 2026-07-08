@@ -83,8 +83,10 @@ Acesse a versão publicada:
 
 ## 👨‍💻 Autores
 
-**Rafael França**
+**Rafael França;**
+<br>
 **Ellen Cristina Martins**
 
-GitHub: https://github.com/eoFrancaa
+GitHub: https://github.com/eoFrancaa 
+<br>  
 GitHub: https://github.com/ellenmartins231-hash
