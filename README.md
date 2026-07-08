@@ -1,63 +1,90 @@
-# .
+# 🍟 McTotem
 
-This template should help get you started developing with Vue 3 in Vite.
+Sistema de autoatendimento inspirado nos totens do McDonald's, desenvolvido com **Vue 3** como projeto da disciplina de Desenvolvimento Web.
 
-## Recommended IDE Setup
+## 📋 Funcionalidades
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- Navegação por categorias
+- Listagem de produtos
+- Personalização de pedidos
+  - Escolha de tamanho
+  - Adição de ingredientes extras
+- Carrinho de compras
+- Alteração de quantidade
+- Remoção de itens
+- Checkout
+- Tela de confirmação do pedido
+- Gerenciamento de estado com Pinia
+- Navegação entre páginas com Vue Router
 
-## Recommended Browser Setup
+## 🛠️ Tecnologias
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+- Vue 3
+- Vite
+- Vue Router
+- Pinia
+- JavaScript
+- HTML5
+- CSS3
 
-## Customize configuration
+## 📂 Estrutura
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+```
+src/
+├── components/
+├── data/
+├── router/
+├── stores/
+├── views/
+├── App.vue
+└── main.js
+```
 
-## Project Setup
+## 🚀 Como executar
 
-```sh
+Clone o repositório:
+
+```bash
+git clone https://github.com/eoFrancaa/mcTotem.git
+```
+
+Acesse a pasta:
+
+```bash
+cd mcTotem
+```
+
+Instale as dependências:
+
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+Execute o projeto:
 
-```sh
+```bash
 npm run dev
 ```
 
-### Compile and Minify for Production
+## 🌐 Projeto Online
 
-```sh
-npm run build
-```
+Acesse a versão publicada:
 
-### Run End-to-End Tests with [Playwright](https://playwright.dev)
+**[LINK DA VERSÃO PUBLICADA](https://mc-totem.vercel.app)**
 
-```sh
-# Install browsers for the first run
-npx playwright install
+## 📸 Funcionalidades
 
-# When testing on CI, must build the project first
-npm run build
+- 🍔 Escolha de produtos
+- 📂 Filtro por categorias
+- 🛒 Carrinho de compras
+- ➕ Personalização dos produtos
+- 💳 Checkout
+- ✅ Confirmação do pedido
 
-# Runs the end-to-end tests
-npm run test:e2e
-# Runs the tests only on Chromium
-npm run test:e2e -- --project=chromium
-# Runs the tests of a specific file
-npm run test:e2e -- tests/example.spec.ts
-# Runs the tests in debug mode
-npm run test:e2e -- --debug
-```
+## 👨‍💻 Autores
 
-### Lint with [ESLint](https://eslint.org/)
+**Rafael França**
+**Ellen Cristina Martins**
 
-```sh
-npm run lint
-```
+GitHub: https://github.com/eoFrancaa
+GitHub: https://github.com/ellenmartins231-hash
