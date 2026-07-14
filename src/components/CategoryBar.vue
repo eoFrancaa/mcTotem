@@ -59,4 +59,21 @@ const categorias = ['Hambúrgueres', 'Acompanhamentos', 'Bebidas', 'Sobremesas']
 .menu button:hover {
   transform: translateX(8px);
 }
+@media (max-width: 768px) {
+  .menu {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 10px;
+  }
+
+  .menu h2 {
+    display: none;
+  }
+
+  .menu button {
+    flex: 0 0 auto;
+    margin-right: 10px;
+  }
+}
 </style>
